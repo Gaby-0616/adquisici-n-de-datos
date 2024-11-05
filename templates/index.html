@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recomendador de Productos</title>
+</head>
+<body>
+    <h1>Sistema de Recomendación de Productos</h1>
+    <form action="/recomendar" method="post">
+        <label for="cliente_id">Ingrese el ID del Cliente:</label>
+        <input type="number" id="cliente_id" name="cliente_id" required>
+        <button type="submit">Obtener Recomendaciones</button>
+    </form>
+
+    {% if recomendaciones %}
+        <h2>Recomendaciones para el Cliente ID: {{ cliente_id }}</h2>
+        <ul>
+            {% for producto in recomendaciones %}
+                <li>{{ producto }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
